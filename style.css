@@ -30,7 +30,7 @@ div#story-text {
     color: rgb(26, 26, 26);
     font-size: 2em;
     opacity: 0;
-    transition-duration: 3s;
+    transition-duration: 1s;
 }
 
 div#buttons {

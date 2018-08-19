@@ -2,23 +2,33 @@ console.log("app.js intact");
 
 //elements
 const $game = document.querySelector("#game");
-const $buttons = document.querySelector("#buttons");
 const $story = document.querySelector("#story-text");
+const $buttons = document.querySelector("#buttons");
+
+//start up
+(() => {
+    console.log(true);
+})();
 
 //event listeners
-let storyPart = 0;
-$buttons.addEventListener("click", function (event) {
+$buttons.addEventListener("click", (event) => {
     if (event.target !== event.currentTarget) {
         let target = event.target;
+        $story.style.opacity = 0;
 
         if (target.innerHTML === "Walk") {
-            //show correct part of story
-            $story.innerHTML = story[storyPart][0];
-            //apply background color
-            $game.style.backgroundColor = story[storyPart][1];
-            $story.style.opacity = 1;
-            storyPart++;
+            story.storyPart++;
+        } else if (target.innerHTML === "Attack") {
+            console.log("You attack");
         }
+
+        setTimeout(() => {
+            //show correct part of story
+            $story.innerHTML = story.text[story.storyPart][1];
+            //apply background color
+            $game.style.backgroundColor = story.text[story.storyPart][2];
+            $story.style.opacity = 1;
+        }, 1000);
         console.log(target.innerHTML);
     }
     event.stopPropagation();
