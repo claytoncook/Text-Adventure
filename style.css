@@ -1,0 +1,56 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "American Typewriter";
+    height: 100%;
+    width: 100%;
+    cursor: crosshair;
+}
+
+div#game {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+    transition-duration: 3s;
+}
+
+div#story {
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+div#story-text {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    color: rgb(26, 26, 26);
+    font-size: 2em;
+    opacity: 0;
+    transition-duration: 3s;
+}
+
+div#buttons {
+    position: absolute;
+    bottom: 0px;
+    display: inline-flex;
+}
+
+div.button {
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    color: rgb(219, 219, 219);
+    background-color: rgb(26, 26, 26);
+    border: rgb(26, 26, 26) solid 1px;
+    margin: 0px 2px;
+    transition-duration: 0.5s;
+}
+
+div.button:hover {
+    background-color: rgb(219, 219, 219);
+    color: rgb(26, 26, 26);
+}
