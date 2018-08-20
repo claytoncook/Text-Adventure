@@ -12,23 +12,34 @@ const $buttons = document.querySelector("#buttons");
 
 //event listeners
 $buttons.addEventListener("click", (event) => {
-    if (event.target !== event.currentTarget) {
-        let target = event.target;
-        $story.style.opacity = 0;
+    let target = event.target;
+    if (target !== event.currentTarget) {
 
-        if (target.innerHTML === "Walk") {
-            story.storyPart++;
-        } else if (target.innerHTML === "Attack") {
-            console.log("You attack");
+        //check if game has ended
+        if (func.isActive(target)) {
+            //fade out
+            $story.style.opacity = 0;
+            if (story.text[story.storyPart][0] === "end") {
+                func.disable(target);
+                //fade in
+                setTimeout(() => {
+                    func.show();
+                }, 1000);
+                console.log("The End");
+            } else {
+                //check if taget button is even active
+                if (target.innerHTML === "Walk") {
+                    //fade in
+                    setTimeout(() => {
+                        func.show();
+                        //move to next part of story
+                        story.storyPart++;
+                    }, 1000);
+                } else if (target.innerHTML === "Attack" && story.text[story.storyPart][0] === "battle") {
+                    console.log("You attack");
+                }
+            }
         }
-
-        setTimeout(() => {
-            //show correct part of story
-            $story.innerHTML = story.text[story.storyPart][1];
-            //apply background color
-            $game.style.backgroundColor = story.text[story.storyPart][2];
-            $story.style.opacity = 1;
-        }, 1000);
         console.log(target.innerHTML);
     }
     event.stopPropagation();

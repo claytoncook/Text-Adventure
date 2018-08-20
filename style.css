@@ -50,7 +50,13 @@ div.button {
     transition-duration: 0.5s;
 }
 
-div.button:hover {
+.active-button:hover {
     background-color: rgb(219, 219, 219);
     color: rgb(26, 26, 26);
+}
+
+.disabled-button {
+    opacity: 0.2;
+    background-color: rgb(219, 219, 219) !important;
+    color: rgb(26, 26, 26) !important;
 }
